@@ -23,6 +23,7 @@
 /**
  * JGAurora A5 3D Printer Firmware - Based on Marlin
  * Authors: Telli Mantelli, Kris Waclawski & Michael Gilardi
+ * Authors: Telli Mantelli, Kris Waclawski, Michael Gilardi & Samuel Pinches
  *
  * This fork of Marlin was created by the community for the 
  * JGAurora A5 3D printer. Big thanks to the Marlin developers
@@ -49,7 +50,7 @@
  */
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
-#define CONFIGURATION_H_VERSION 010107
+#define CONFIGURATION_H_VERSION 010110
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -86,10 +87,9 @@
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
-#define STRING_CONFIG_H_AUTHOR "(Telli Mantelli, Kris Waclawski, Samuel Pinches & Michael Gilardi, 3 Jan 2018)" // Who made the changes.
 #define SHOW_BOOTSCREEN
-#define STRING_SPLASH_LINE1 SHORT_BUILD_VERSION // will be shown during bootup in line 1
-#define STRING_SPLASH_LINE2 WEBSITE_URL         // will be shown during bootup in line 2
+#define STRING_SPLASH_LINE1 "Marlin 1.1.8 for A5" // will be shown during bootup in line 1
+#define STRING_SPLASH_LINE2 "github.com/GilardiLabs/Marlin"         // will be shown during bootup in line 2
 
 //
 // *** VENDORS PLEASE READ *****************************************************
@@ -381,12 +381,12 @@
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
 
-  // JGAurora A5
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
+  // JGAurora A5 (tuned at 210C)
+  #define  DEFAULT_Kp 35.3//22.2
+  #define  DEFAULT_Ki 4.35//1.08
+  #define  DEFAULT_Kd 71.57//114
 
-#endif // PIDTEMP
+  #endif // PIDTEMP
 
 //===========================================================================
 //============================= PID > Bed Temperature Control ===============
@@ -416,6 +416,8 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
+  
+  // JGAurora A5 (tuned at 70C)  
   #define  DEFAULT_bedKp 10.00
   #define  DEFAULT_bedKi .023
   #define  DEFAULT_bedKd 305.4
@@ -441,7 +443,7 @@
 // This option prevents a single extrusion longer than EXTRUDE_MAXLENGTH.
 // Note that for Bowden Extruders a too-small value here may prevent loading.
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 1000
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -546,7 +548,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 86 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 102 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -561,7 +563,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 800, 800, 100, 5000 }
+#define DEFAULT_MAX_ACCELERATION      { 1000, 500, 100, 5000 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -584,7 +586,7 @@
  * value set here, it may happen instantaneously.
  */
 #define DEFAULT_XJERK                  8.0
-#define DEFAULT_YJERK                  8.0
+#define DEFAULT_YJERK                  3.0
 #define DEFAULT_ZJERK                  0.3
 #define DEFAULT_EJERK                  5.0
 
@@ -1055,8 +1057,8 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_XY (80*60)
+#define HOMING_FEEDRATE_Z  (12*60)
 
 // @section calibrate
 
@@ -1161,9 +1163,9 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_TEMP_HOTEND 200
-#define PREHEAT_1_TEMP_BED     60
-#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_1_TEMP_HOTEND 205
+#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_FAN_SPEED     255 // Value from 0 to 255
 
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    110
