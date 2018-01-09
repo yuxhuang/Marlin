@@ -22,7 +22,6 @@
 
 /**
  * JGAurora A5 3D Printer Firmware - Based on Marlin
- * Authors: Telli Mantelli, Kris Waclawski & Michael Gilardi
  * Authors: Telli Mantelli, Kris Waclawski, Michael Gilardi & Samuel Pinches
  *
  * This fork of Marlin was created by the community for the 
@@ -87,6 +86,7 @@
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
+#define STRING_CONFIG_H_AUTHOR "(Telli Mantelli, Kris Waclawski, Samuel Pinches & Michael Gilardi, 9 Jan 2018)" // Who made the changes.
 #define SHOW_BOOTSCREEN
 #define STRING_SPLASH_LINE1 "Marlin 1.1.8 for A5" // will be shown during bootup in line 1
 #define STRING_SPLASH_LINE2 "github.com/GilardiLabs/Marlin"         // will be shown during bootup in line 2
@@ -443,7 +443,7 @@
 // This option prevents a single extrusion longer than EXTRUDE_MAXLENGTH.
 // Note that for Bowden Extruders a too-small value here may prevent loading.
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 1000
+#define EXTRUDE_MAXLENGTH 200
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
