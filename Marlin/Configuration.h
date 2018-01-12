@@ -370,9 +370,9 @@
   //#define  DEFAULT_Kd 440
 
   // JG Aurora A3
-  #define  DEFAULT_Kp 22.76
-  #define  DEFAULT_Ki 1.69
-  #define  DEFAULT_Kd 76.63
+  #define  DEFAULT_Kp 26.92
+  #define  DEFAULT_Ki 1.81
+  #define  DEFAULT_Kd 99.92
 
 #endif // PIDTEMP
 
@@ -406,9 +406,9 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define  DEFAULT_bedKp 10.00
-  #define  DEFAULT_bedKi .023
-  #define  DEFAULT_bedKd 305.4
+  #define  DEFAULT_bedKp 344.85
+  #define  DEFAULT_bedKi 66.82
+  #define  DEFAULT_bedKd 444.95
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -536,7 +536,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 98.95, 99.591, 400, 98.46 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 98.71, 98.71, 400, 98.45 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -573,9 +573,9 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define DEFAULT_XJERK                 10.0
-#define DEFAULT_YJERK                 10.0
-#define DEFAULT_ZJERK                  0.3
+#define DEFAULT_XJERK                 15.0
+#define DEFAULT_YJERK                 15.0
+#define DEFAULT_ZJERK                  0.4
 #define DEFAULT_EJERK                  5.0
 
 //===========================================================================
@@ -769,7 +769,7 @@
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
-//#define INVERT_E4_DIR false
+#define INVERT_E4_DIR false
 
 // @section homing
 
@@ -1155,8 +1155,8 @@
 #define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_HOTEND 230
+#define PREHEAT_2_TEMP_BED    100
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
