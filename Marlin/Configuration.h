@@ -388,10 +388,10 @@
 //  #define  DEFAULT_Kd 71.57//114
 
   // Felix's A3S (tuned at 200C A3S, custom thermistor)
-    #define  DEFAULT_Kp 50.00
-    #define  DEFAULT_Ki 6.04
-    #define  DEFAULT_Kd 103.43
-  #endif // PIDTEMP
+  #define  DEFAULT_Kp 26.43
+  #define  DEFAULT_Ki 2.67
+  #define  DEFAULT_Kd 65.49
+#endif // PIDTEMP
 
 //===========================================================================
 //============================= PID > Bed Temperature Control ===============
@@ -723,7 +723,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
